@@ -1,3 +1,3 @@
-export const selectDragonName = (state) => state.name;
-export const selectNest = (state) => state.dragons;
-export const selectError = (state) => state.errmsg;
+export const selectDragonName = (state) => state.dragon.name;
+export const selectNest = (state) => state.dragon.dragons;
+export const selectError = (state) => state.dragon.errmsg;
