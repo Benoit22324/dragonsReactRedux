@@ -11,7 +11,7 @@ function App() {
   }
 
   const submit = () => {
-    if (value.trim() !== '') dispatch({type: 'NEST/ADDDRAGON'})
+    if (value.trim() !== '' && nest.filter((dragon) => dragon.name === value).length === 0) dispatch({type: 'NEST/ADDDRAGON'})
   }
 
   return (
