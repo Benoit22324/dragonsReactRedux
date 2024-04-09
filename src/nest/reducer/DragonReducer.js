@@ -17,7 +17,7 @@ const DragonReducer = (state = init, action) => {
 
         case NEST_ADDDRAGON: return {
             ...state,
-            dragons: [...state.dragons, {id: state.id, name: state.name}],
+            dragons: [...state.dragons, {id: state.id, name: state.name.trim()}],
             id: state.id + 1,
             name: '',
             errmsg: '',

@@ -14,9 +14,9 @@ function App() {
   }
 
   const submit = () => {
-    if (value.trim() !== '' && nest.filter((dragon) => dragon.name === value).length === 0) dispatch(addDragon())
+    if (value.trim() !== '' && nest.filter((dragon) => dragon.name.toLowerCase() === value.toLowerCase()).length === 0) dispatch(addDragon())
     else if (value.trim() === '') dispatch(addError('Veuillez saisir un nom'))
-    else if (nest.filter((dragon) => dragon.name === value).length > 0) dispatch(addError('Ce nom existe déjà !'))
+    else if (nest.filter((dragon) => dragon.name.toLowerCase() === value.toLowerCase()).length > 0) dispatch(addError('Ce nom existe déjà !'))
   }
 
   return (
