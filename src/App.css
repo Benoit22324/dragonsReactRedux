@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Personal Corner */
+.errormsg {
+  color: rgb(184, 0, 0);
+  font-weight: bold;
+}
+
+.name_input {
+  padding: 0.2em;
+  border-radius: 5px;
+}
+.submit_button {
+  margin-left: 0.8em;
+  padding: 0.5em;
+  background-color: #505050;
+}
+.submit_button:hover {
+  background-color: #747474;
+}
+
+.dragon_name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.del_dragon_button {
+  margin-left: 0.8em;
+  padding: 0.3em;
+  background-color: rgb(231, 0, 0);
+}
+.del_dragon_button:hover {
+  background-color: rgb(241, 51, 51);
+}

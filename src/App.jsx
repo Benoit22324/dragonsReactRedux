@@ -21,14 +21,15 @@ function App() {
 
   return (
     <>
+      <h1>Le nid des dragons</h1>
       {
-        error !== '' && <p>{error}</p>
+        error !== '' && <p className='errormsg'>{error}</p>
       }
-      <input type="text" name='name' value={value} onChange={update} />
-      <button onClick={submit}>Ajouter au nid</button>
+      <input type="text" name='name' value={value} onChange={update} className='name_input' />
+      <button onClick={submit} className='submit_button'>Ajouter au nid</button>
       {
         nest.length > 0 ?
-          nest.map((dragon, index) => <p key={index}>{dragon.name}<button onClick={() => dispatch(delDragon(dragon.name))}>Retirer</button></p>)
+          nest.map((dragon, index) => <p className='dragon_name' key={index}>{dragon.name}<button className='del_dragon_button' onClick={() => dispatch(delDragon(dragon.name))}>Retirer</button></p>)
           :
           <p>Aucun Dragon dans le nid</p>
       }
