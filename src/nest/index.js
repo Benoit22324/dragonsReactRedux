@@ -5,6 +5,4 @@ const nest = createStore(
     DragonReducer
 )
 
-nest.subscribe(() => console.log(nest.getState()))
-
 export default nest

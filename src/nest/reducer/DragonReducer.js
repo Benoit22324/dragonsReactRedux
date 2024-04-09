@@ -11,6 +11,13 @@ const DragonReducer = (state = init, action) => {
             name: action.payload,
         }
 
+        case 'NEST/ADDDRAGON': return {
+            ...state,
+            dragons: [...state.dragons, {id: state.id, name: state.name}],
+            id: state.id + 1,
+            name: '',
+        }
+
         default: return state
     }
 }
