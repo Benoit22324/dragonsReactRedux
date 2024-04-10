@@ -106,6 +106,10 @@
 .unit_list {
   padding: 1.2em;
 }
+.unit_list_selected {
+  background-color: #747474;
+  border-radius: 5px;
+}
 .selected_unit {
   font-weight: bold;
 }

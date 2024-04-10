@@ -23,11 +23,14 @@ const Couple = () => {
                 <h2>Nid des dragons</h2>
                 {
                     nest.length > 0 ?
-                    nest.map((dragon, index) =>
-                        dragon.couple ?
-                        <p key={index} className="disabled">{dragon.name}</p>
+                    nest.map((drag, index) =>
+                        drag.couple ?
+                        <p key={index} className="disabled">{drag.name}</p>
                         :
-                        <p key={index} className="activated" onClick={() => dispatch(setDragon(dragon))}>{dragon.name}</p>
+                        drag.id === dragon.id ?
+                            <p key={index} className="activated unit_list_selected" onClick={() => dispatch(setDragon(drag))}>{drag.name}</p>
+                            :
+                            <p key={index} className="activated" onClick={() => dispatch(setDragon(drag))}>{drag.name}</p>
                     )
                     :
                     <p>Il n'y a pas de dragon dans le nid</p>
@@ -37,11 +40,14 @@ const Couple = () => {
                 <h2>Caserne des chevaliers</h2>
                 {
                     barrack.length > 0 ?
-                    barrack.map((knight, index) =>
-                        knight.couple ?
-                        <p key={index} className="disabled">{knight.name}</p>
+                    barrack.map((kni, index) =>
+                        kni.couple ?
+                        <p key={index} className="disabled">{kni.name}</p>
                         :
-                        <p key={index} className="activated" onClick={() => dispatch(setKnight(knight))}>{knight.name}</p>
+                        kni.id === knight.id ? 
+                            <p key={index} className="activated unit_list_selected" onClick={() => dispatch(setKnight(kni))}>{kni.name}</p>
+                            :
+                            <p key={index} className="activated" onClick={() => dispatch(setKnight(kni))}>{kni.name}</p>
                     )
                     :
                     <p>Il n'y a pas de chevalier dans la caserne</p>
