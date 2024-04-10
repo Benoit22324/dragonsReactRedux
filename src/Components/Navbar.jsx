@@ -5,6 +5,7 @@ const Navbar = () => {
         <nav className="navbar">
             <NavLink to={'/'} style={({isActive}) => isActive ? {color: "orange", fontWeight: "bold"} : {}}>Dragons</NavLink>
             <NavLink to={'/knight'} style={({isActive}) => isActive ? {color: "orange", fontWeight: "bold"} : {}}>Knights</NavLink>
+            <NavLink to={'/couple'} style={({isActive}) => isActive ? {color: "orange", fontWeight: "bold"} : {}}>Couples</NavLink>
         </nav>
     </>
 }

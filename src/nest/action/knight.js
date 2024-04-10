@@ -1,4 +1,4 @@
-import { BARRACK_ADDERROR, BARRACK_ADDKNIGHT, BARRACK_DELKNIGHT, BARRACK_UPDATEAGE, BARRACK_UPDATENAME } from "../constant/action-type";
+import { BARRACK_ADDERROR, BARRACK_ADDKNIGHT, BARRACK_DELKNIGHT, BARRACK_UPDATEAGE, BARRACK_UPDATECOUPLE, BARRACK_UPDATENAME } from "../constant/action-type";
 
 export const updateName = (payload) => ({
     type: BARRACK_UPDATENAME,
@@ -17,5 +17,9 @@ export const addError = (payload) => ({
 })
 export const delKnight = (payload) => ({
     type: BARRACK_DELKNIGHT,
+    payload,
+})
+export const updateCoupleK = (payload) => ({
+    type: BARRACK_UPDATECOUPLE,
     payload,
 })

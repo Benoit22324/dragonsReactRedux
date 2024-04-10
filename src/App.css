@@ -93,3 +93,26 @@
   justify-content: center;
   gap: 15px;
 }
+
+.couple_section {
+  display: flex;
+  justify-content: space-between;
+}
+.couple_creation_zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.unit_list {
+  padding: 1.2em;
+}
+.selected_unit {
+  font-weight: bold;
+}
+.activated {
+  cursor: pointer;
+}
+.disabled {
+  color: #5c5c5c;
+  cursor: default;
+}
