@@ -18,7 +18,9 @@ const Knight = () => {
 
     const submit = () => {
         if (name.trim() !== '' && barrack.filter((knight) => knight.name.toLowerCase() === name.toLowerCase()).length === 0 && age !== '') dispatch(addKnight())
-        else if (name.trim() === '' && age.trim() === '') dispatch(addError('Veuillez saisir un nom et une age'))
+        else if (name.trim() === '' && age.trim() === '') dispatch(addError('Veuillez saisir un nom et une age au chevalier'))
+        else if (name.trim() === '' && age.trim() !== '') dispatch(addError('Veuillez saisir un nom au chevalier'))
+        else if (name.trim() !== '' && age.trim() === '') dispatch(addError('Veuillez saisir une age au chevalier'))
     }
 
     return <>
