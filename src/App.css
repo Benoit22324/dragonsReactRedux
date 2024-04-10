@@ -100,8 +100,9 @@
 }
 .couple_creation_zone {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 1.2em;
 }
 .unit_list {
   padding: 1.2em;

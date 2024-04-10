@@ -1,4 +1,4 @@
-import { COUPLES_SETDRAGON, COUPLES_SETKNIGHT, COUPLES_CREATE } from "../constant/action-type"
+import { COUPLES_SETDRAGON, COUPLES_SETKNIGHT, COUPLES_CREATE, COUPLES_ADDERROR } from "../constant/action-type"
 
 const init = {
     couples: [],
@@ -28,6 +28,11 @@ const CoupleReducer = (state = init, action) => {
             knight: undefined,
             dragon: undefined,
             errmsg: '',
+        }
+
+        case COUPLES_ADDERROR: return {
+            ...state,
+            errmsg: action.payload,
         }
 
         default: return state

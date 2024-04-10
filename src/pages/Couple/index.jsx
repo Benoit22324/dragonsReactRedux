@@ -1,20 +1,24 @@
 import { useSelector, useDispatch } from "react-redux";
 import { selectNest } from "../../nest/selector/dragon";
 import { selectBarrack } from "../../nest/selector/knight";
-import { selectCouples, selectDragon, selectKnight } from "../../nest/selector/couple";
-import { createCouple, setDragon, setKnight } from "../../nest/action/couple";
+import { selectCouples, selectDragon, selectError, selectKnight } from "../../nest/selector/couple";
+import { addError, createCouple, setDragon, setKnight } from "../../nest/action/couple";
 
 const Couple = () => {
     const dispatch = useDispatch();
     const nest = useSelector(selectNest);
     const barrack = useSelector(selectBarrack);
     const couples = useSelector(selectCouples);
+    const error = useSelector(selectError);
 
     const knight = useSelector(selectKnight);
     const dragon = useSelector(selectDragon);
 
     const create = () => {
         if (knight !== undefined && dragon !== undefined) dispatch(createCouple())
+        else if (knight === undefined && dragon === undefined) dispatch(addError('Veuillez choisir/ajouter un dragon et un chevalier'))
+        else if (knight === undefined && dragon !== undefined) dispatch(addError('Veuillez choisir un chevalier'))
+        else if (knight !== undefined && dragon === undefined) dispatch(addError('Veuillez choisir un dragon'))
     }
 
     return <>
@@ -27,8 +31,11 @@ const Couple = () => {
                         drag.couple ?
                         <p key={index} className="disabled">{drag.name}</p>
                         :
-                        drag.id === dragon.id ?
-                            <p key={index} className="activated unit_list_selected" onClick={() => dispatch(setDragon(drag))}>{drag.name}</p>
+                        dragon !== undefined ?
+                            drag.id === dragon.id ?
+                                <p key={index} className="activated unit_list_selected" onClick={() => dispatch(setDragon(drag))}>{drag.name}</p>
+                                :
+                                <p key={index} className="activated" onClick={() => dispatch(setDragon(drag))}>{drag.name}</p>
                             :
                             <p key={index} className="activated" onClick={() => dispatch(setDragon(drag))}>{drag.name}</p>
                     )
@@ -44,8 +51,11 @@ const Couple = () => {
                         kni.couple ?
                         <p key={index} className="disabled">{kni.name}</p>
                         :
-                        kni.id === knight.id ? 
-                            <p key={index} className="activated unit_list_selected" onClick={() => dispatch(setKnight(kni))}>{kni.name}</p>
+                        knight !== undefined ?
+                            kni.id === knight.id ? 
+                                <p key={index} className="activated unit_list_selected" onClick={() => dispatch(setKnight(kni))}>{kni.name}</p>
+                                :
+                                <p key={index} className="activated" onClick={() => dispatch(setKnight(kni))}>{kni.name}</p>
                             :
                             <p key={index} className="activated" onClick={() => dispatch(setKnight(kni))}>{kni.name}</p>
                     )
@@ -54,6 +64,9 @@ const Couple = () => {
                 }
             </div>
         </div>
+        {
+            error !== '' && <p className="errormsg">{error}</p>
+        }
         <div className="couple_creation_zone">
             {
                 dragon !== undefined && <p>Dragon: <span className="selected_unit">{dragon.name}</span></p>

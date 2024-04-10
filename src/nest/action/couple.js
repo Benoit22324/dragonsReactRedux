@@ -1,4 +1,4 @@
-import { COUPLES_CREATE, COUPLES_SETDRAGON, COUPLES_SETKNIGHT } from "../constant/action-type";
+import { COUPLES_ADDERROR, COUPLES_CREATE, COUPLES_SETDRAGON, COUPLES_SETKNIGHT } from "../constant/action-type";
 
 export const setKnight = (payload) => ({
     type: COUPLES_SETKNIGHT,
@@ -10,4 +10,8 @@ export const setDragon = (payload) => ({
 })
 export const createCouple = () => ({
     type: COUPLES_CREATE,
+})
+export const addError = (payload) => ({
+    type: COUPLES_ADDERROR,
+    payload,
 })
