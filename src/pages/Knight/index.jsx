@@ -21,6 +21,7 @@ const Knight = () => {
         else if (name.trim() === '' && age.trim() === '') dispatch(addError('Veuillez saisir un nom et une age au chevalier'))
         else if (name.trim() === '' && age.trim() !== '') dispatch(addError('Veuillez saisir un nom au chevalier'))
         else if (name.trim() !== '' && age.trim() === '') dispatch(addError('Veuillez saisir une age au chevalier'))
+        else if (barrack.filter((knight) => knight.name.toLowerCase() === name.trim().toLowerCase()).length > 0) dispatch(addError('Ce nom existe déjà !'))
     }
 
     return <>
