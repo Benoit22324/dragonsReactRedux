@@ -1,4 +1,4 @@
-import { BARRACK_ADDERROR, BARRACK_ADDKNIGHT, BARRACK_UPDATEAGE, BARRACK_UPDATENAME } from "../constant/action-type"
+import { BARRACK_ADDERROR, BARRACK_ADDKNIGHT, BARRACK_DELKNIGHT, BARRACK_UPDATEAGE, BARRACK_UPDATENAME } from "../constant/action-type"
 
 const init = {
     knights: [],
@@ -23,11 +23,16 @@ const KnightReducer = (state = init, action) => {
 
         case BARRACK_ADDKNIGHT: return {
             ...state,
-            knights: [...state.knights, {id: state.id, name: state.name, age: state.age}],
+            knights: [...state.knights, {id: state.id, name: state.name.trim(), age: state.age.trim()}],
             id: state.id + 1,
             name: '',
             age: '',
             errmsg: '',
+        }
+
+        case BARRACK_DELKNIGHT: return {
+            ...state,
+            knights: state.knights.filter((knight) => knight.id !== action.payload)
         }
 
         case BARRACK_ADDERROR: return {

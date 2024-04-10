@@ -47,29 +47,49 @@
   font-weight: bold;
 }
 
-.name_input {
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: auto;
+  width: 70%;
+}
+.name_input,
+.age_input {
+  margin-left: 1.2em;
   padding: 0.2em;
   border-radius: 5px;
 }
 .submit_button {
-  margin-left: 0.8em;
   padding: 0.5em;
+  width: 70%;
   background-color: #505050;
 }
 .submit_button:hover {
   background-color: #747474;
 }
 
-.dragon_name {
+.dragon_name,
+.knight_name {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.del_dragon_button {
+.del_dragon_button,
+.del_knight_button {
   margin-left: 0.8em;
-  padding: 0.3em;
+  padding: 0.2em 0.5em;
   background-color: rgb(231, 0, 0);
 }
-.del_dragon_button:hover {
+.del_dragon_button:hover,
+.del_knight_button:hover {
   background-color: rgb(241, 51, 51);
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }

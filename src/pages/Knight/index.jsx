@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { addKnight, updateAge, updateName } from '../../nest/action/knight';
+import { addError, addKnight, delKnight, updateAge, updateName } from '../../nest/action/knight';
 import { selectBarrack, selectError, selectKnightAge, selectKnightName } from '../../nest/selector/knight';
 
 const Knight = () => {
@@ -18,18 +18,20 @@ const Knight = () => {
 
     const submit = () => {
         if (name.trim() !== '' && barrack.filter((knight) => knight.name.toLowerCase() === name.toLowerCase()).length === 0 && age !== '') dispatch(addKnight())
-        else if (name.trim() === '' && age.trim() === '') dispatch()
+        else if (name.trim() === '' && age.trim() === '') dispatch(addError('Veuillez saisir un nom et une age'))
     }
 
     return <>
         <h1>La caserne des chevaliers</h1>
         {error !== '' && <p className='errormsg'>{error}</p>}
-        <input type="text" name="name" value={name} onChange={updatename}/>
-        <input type="text" name='age' value={age} onChange={updateage} />
-        <button onClick={submit}>Ajouter à la caserne</button>
+        <div className='form'>
+            <label>Nom:<input type="text" name="name" value={name} onChange={updatename} className='name_input' /></label>
+            <label>Age:<input type="text" name='age' value={age} onChange={updateage} className='age_input' /></label>
+            <button onClick={submit} className='submit_button'>Ajouter à la caserne</button>
+        </div>
         {
             barrack.length > 0 ?
-            barrack.map((knight, index) => <p key={index}>{knight.name} | {knight.age}</p>)
+            barrack.map((knight, index) => <p key={index} className='knight_name'>{knight.name} | {knight.age} <button onClick={() => dispatch(delKnight(knight.id))} className='del_knight_button'>X</button></p>)
             :
             <p>Aucun chevalier dans la caserne</p>
         }

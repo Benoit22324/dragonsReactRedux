@@ -25,7 +25,7 @@ const DragonReducer = (state = init, action) => {
 
         case NEST_DELDRAGON: return {
             ...state,
-            dragons: state.dragons.filter((dragon) => dragon.name !== action.payload)
+            dragons: state.dragons.filter((dragon) => dragon.id !== action.payload)
         }
 
         case NEST_ADDERROR: return {
